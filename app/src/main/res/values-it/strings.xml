@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyApp</string>
+    <string name="welcome_my_app">Benvenuto mia app</string>
+    <string name="cats">Gatte</string>
+    <string name="help_us_save_the_cats">Aiutaci a salvare i gatti</string>
+</resources>

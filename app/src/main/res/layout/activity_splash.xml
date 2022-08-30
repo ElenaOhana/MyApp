@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashActivity">
+
+    <ImageView
+        android:id="@+id/my_image"
+        android:layout_width="232dp"
+        android:layout_height="221dp"
+        android:scaleType="fitXY"
+        android:layout_centerInParent="true"
+        android:src="@drawable/outline_emoji_nature_black_24" />
+        <!--android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My calculator"
+        android:layout_below="@+id/my_image"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textSize="36sp"
+        android:textColor="@color/purple_700"/>
+
+
+</RelativeLayout>

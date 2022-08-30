@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyApp</string>
+    <string name="welcome_my_app">Welcome My App</string>
+    <string name="cats">Cats</string>
+    <string name="help_us_save_the_cats">Help us save the cats</string>
+    <string name="click_me">Click Me</string>
+</resources>
