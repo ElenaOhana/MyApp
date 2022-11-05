@@ -4,14 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 enum LastAction{ADD, SUB, MULT, DIV, NONE}
 
 public class CalcActivity extends AppCompatActivity {
 
-    private EditText editText;
+    private TextView textView;
     private double value =0;
     private boolean operationClicked;//If there was pressed an operation or not.
     private LastAction lastAction = LastAction.NONE;
@@ -20,32 +20,32 @@ public class CalcActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calc);
-        editText = findViewById(R.id.edit_text);
+        textView = findViewById(R.id.text_view);
     }
 
     public void resetValues() {
-        editText.setText("0.00");
+        textView.setText("0.00");
     }
 
     public void setValue(String value) { // No code repeat))
-        if (editTextIsEmpty()) {
-            editText.setText(value);
+        if (textViewIsEmpty()) {
+            textView.setText(value);
         }
         else if (operationClicked) {
-            editText.setText(value);
+            textView.setText(value);
             operationClicked=false;
         } else {
-            String current = editText.getText().toString();
-            editText.setText(current + value);
+            String current = textView.getText().toString();
+            textView.setText(current + value);
         }
     }
 
-    public boolean editTextIsEmpty() {
-        return ((editText.getText().toString().equals("0.00")) || (editText.getText().toString().equals("0.0")));
+    public boolean textViewIsEmpty() {
+        return ((textView.getText().toString().equals("0.00")) || (textView.getText().toString().equals("0.0")));
     }
 
     public void saveValue(){
-        String input = editText.getText().toString();
+        String input = textView.getText().toString();
         value = Double.parseDouble(input);
     }
 
@@ -80,13 +80,22 @@ public class CalcActivity extends AppCompatActivity {
                 lastAction=LastAction.ADD;
                 break;
             }
-            // TODO
-            case R.id.btn_dot: {
 
+            case R.id.btn_dot: {
+                String current = textView.getText().toString();
+                textView.setText(current +".");
                 break;
             }
+
+            //Have press the negative button AFTER the number was pressed.
+            case R.id.btn_neg: {
+                String current = textView.getText().toString();
+                textView.setText("-" +current);
+                break;
+            }
+
             case R.id.btn_equal: {
-                String input = editText.getText().toString();
+                String input = textView.getText().toString();
                 double doubleValueFromInput = Double.parseDouble(input);
                 double newVal = 0;
                 switch (lastAction) {
@@ -110,13 +119,7 @@ public class CalcActivity extends AppCompatActivity {
                     default:
                         break;
                 }
-                editText.setText("" + newVal);
-                break;
-            }
-
-            case R.id.btn_neg: {
-                String current = editText.getText().toString();
-                editText.setText("-" +current);
+                textView.setText("" + newVal);
                 break;
             }
 

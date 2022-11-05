@@ -7,8 +7,8 @@
     android:orientation="vertical"
     tools:context=".CalcActivity">
 
-    <EditText
-        android:id="@+id/edit_text"
+    <TextView
+        android:id="@+id/text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"
@@ -131,25 +131,29 @@
         android:orientation="horizontal">
 
         <Button
-            android:onClick="onClick"
             android:id="@+id/btn_neg"
             style="@style/MyBtn"
-            android:text="Neg"
-            android:textSize="18sp"/>
-        <Button
+            android:layout_height="80dp"
             android:onClick="onClick"
+            android:text="Neg"
+            android:textSize="18sp" />
+
+        <Button
             android:id="@+id/btn_0"
             style="@style/MyBtn"
-            android:text="0" />
-        <Button
             android:onClick="onClick"
+            android:text="0" />
+
+        <Button
             android:id="@+id/btn_dot"
             style="@style/MyBtn"
-            android:text="." />
-        <Button
             android:onClick="onClick"
+            android:text="." />
+
+        <Button
             android:id="@+id/btn_equal"
             style="@style/MyBtn"
+            android:onClick="onClick"
             android:text="=" />
 
     </LinearLayout>
